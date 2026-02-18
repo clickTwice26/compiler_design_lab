@@ -15,12 +15,12 @@ library = {
     "delimiter" : [";"],
     "numbers" : []
 }
+
 def getParsedLine(text : str, spliter : str = " "):
     print(text)
     parsed_line = ""
     possible_delimiters = ["(", ";"]
     count_till_delimiter = 1
-    
     for i in text:
         if i in possible_delimiters:
             delimiter = i
@@ -62,8 +62,8 @@ def isPreprocessor(line : str, delimiter : str = '>') -> dict:
         spliter = " "
         response["preprocessor_type"] = "define"
         line = line.split(" ")
-        response["identifier_name"] = line[1]
-        response["value"] = line[2]
+        response["identifier_name"] = line[2]
+        response["value"] = line[3]
 
     if line.startswith("#include"):
         line = line.split("<")
@@ -77,6 +77,9 @@ def isPreprocessor(line : str, delimiter : str = '>') -> dict:
    # for i in line:
    
     #    if 
+
+
+
 text = open("test.c", "r").read();
 newline_counter : int = 0
 index_counter : int = 0
@@ -90,7 +93,7 @@ while char_count < len(text):
         print("Preprocessor found")
         line_for_parsing = ""
         j = char_count
-        while text[j] != '>':
+        while text[j] !=    '>': 
             line_for_parsing+=text[j]
             j+=1
         isPreprocessor(line_for_parsing)
